@@ -1,0 +1,30 @@
+server:
+  port: ${APP_PORT:8080}
+
+spring:
+  application:
+    name: ${APP_NAME:unnamed}
+  # JMS配置:
+  artemis:
+    mode: native
+    host: 127.0.0.1
+    port: 61616
+    user: admin
+    password: password
+  datasource:
+    url: jdbc:hsqldb:file:testdb
+    username: sa
+    password:
+    dirver-class-name: org.hsqldb.jdbc.JDBCDriver
+    # HikariCP配置:
+    hikari:
+      auto-commit: false
+      connection-timeout: 3000
+      validation-timeout: 3000
+      max-lifetime: 60000
+      maximum-pool-size: 20
+      minimum-idle: 1
+
+pebble:
+  suffix:
+  cache: false

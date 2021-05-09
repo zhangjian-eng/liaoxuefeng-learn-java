@@ -1,0 +1,33 @@
+server:
+  port: ${APP_PORT:8080}
+
+spring:
+  application:
+    name: ${APP_NAME:unnamed}
+  datasource-master:
+    url: jdbc:hsqldb:file:testdb
+    username: sa
+    password:
+    dirver-class-name: org.hsqldb.jdbc.JDBCDriver
+    hikari:
+      auto-commit: false
+      connection-timeout: 3000
+      validation-timeout: 3000
+      maximum-pool-size: 5
+      minimum-idle: 1
+  datasource-slave:
+    url: jdbc:hsqldb:file:testdb
+    # 可替换为只有SELECT权限的只读用户:
+    username: sa
+    password:
+    dirver-class-name: org.hsqldb.jdbc.JDBCDriver
+    hikari:
+      auto-commit: false
+      connection-timeout: 3000
+      validation-timeout: 3000
+      maximum-pool-size: 5
+      minimum-idle: 1
+
+pebble:
+  suffix:
+  cache: false

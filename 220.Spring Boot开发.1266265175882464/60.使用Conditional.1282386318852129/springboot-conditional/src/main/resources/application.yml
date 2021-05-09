@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: ${APP_NAME:unnamed}
+  datasource:
+    url: jdbc:hsqldb:file:testdb
+    username: sa
+    password:
+    dirver-class-name: org.hsqldb.jdbc.JDBCDriver
+    # HikariCP配置:
+    hikari:
+      auto-commit: false
+      connection-timeout: 3000
+      validation-timeout: 3000
+      max-lifetime: 60000
+      maximum-pool-size: 20
+      minimum-idle: 1
+
+pebble:
+  suffix:
+  cache: false
+
+server:
+  port: ${APP_PORT:8080}
+
+storage:
+  type: ${STORAGE_TYPE:local}
+  local:
+    root: ${STORAGE_LOCAL_ROOT:/var/storage}
+  aws:
+    buket: ${STORAGE_AWS_BUCKET:}
+    access-key: ${STORAGE_AWS_ACCESS_KEY:}
+    access-secret: ${STORAGE_AWS_ACCESS_SECRET:}
+  aliyun:
+    buket: ${STORAGE_ALIYUN_BUCKET:}
+    access-key: ${STORAGE_ALIYUN_ACCESS_KEY:}
+    access-secret: ${STORAGE_ALIYUN_ACCESS_SECRET:}
